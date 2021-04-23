@@ -1,7 +1,7 @@
 <?php
 
-require_once "../../Interactions/Todo/ShowTodo.php";
-require_once "../../Services/AddTodoList.php";
+require_once "../../Views/Todo/ShowTodo.php";
+require_once "../../Services/TodoService.php";
 
 // add initial data
 addTodoList("Write an article");

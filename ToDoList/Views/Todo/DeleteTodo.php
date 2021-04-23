@@ -2,9 +2,9 @@
 
 require_once __DIR__ . "/../../Helpers/Input.php";
 require_once __DIR__ . "/../../Helpers/Output.php";
-require_once __DIR__ . "/../../Services/DeleteTodoList.php";
+require_once __DIR__ . "/../../Services/TodoService.php";
 
-function viewRemoveTodoList()
+function viewDeleteTodoList()
 {
     echo "DELETE TODO" . PHP_EOL;
 
