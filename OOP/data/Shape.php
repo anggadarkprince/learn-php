@@ -17,7 +17,7 @@ class Rectangle extends Shape
         return parent::getCorner();
     }
 
-    public function getParentCorner()
+    public function getParentCorner(): int
     {
         return parent::getCorner();
     }
