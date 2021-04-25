@@ -19,6 +19,7 @@ class Manager
 
 class VicePresident extends Manager
 {
+    // constructor overriding must call parent constructor
     public function __construct(string $name = "")
     {
         // not required but recommended
