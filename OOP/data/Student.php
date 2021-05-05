@@ -7,6 +7,12 @@ class Student
     public string $value;
     private string $sample;
 
+    public function __construct($id = '', $name = '')
+    {
+        $this->id = $id;
+        $this->name = $name;
+    }
+
     public function setSample(string $val)
     {
         $this->sample = $val;
@@ -23,5 +29,33 @@ class Student
     {
         unset($this->value);
         unset($this->sample);
+    }
+
+    public function __invoke(...$arguments): void
+    {
+        $join = join(",", $arguments);
+        echo "Invoke student with arguments $join" . PHP_EOL;
+    }
+
+    public function __toString(): string
+    {
+        return "{$this->id}: {$this->name}";
+    }
+
+    public function __debugInfo()
+    {
+        return [
+            "id" => $this->id,
+            "name" => $this->name,
+            "value" => $this->value,
+            "sample" => $this->sample,
+            "author" => "Angga",
+            "version" => "1.0.0"
+        ];
+    }
+
+    function __destruct()
+    {
+        echo "Object student $this->name is destroyed" . PHP_EOL;
     }
 }
