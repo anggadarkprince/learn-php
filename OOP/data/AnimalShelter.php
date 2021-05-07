@@ -11,6 +11,12 @@ interface AnimalShelter
 
 class CatShelter implements AnimalShelter
 {
+    /**
+     * Covariance: Specific return rather than return Animal, it return Cat.
+     *
+     * @param string $name
+     * @return Cat
+     */
     public function adopt(string $name): Cat
     {
         $cat = new Cat();
@@ -21,6 +27,12 @@ class CatShelter implements AnimalShelter
 
 class DogShelter implements AnimalShelter
 {
+    /**
+     * Covariance: xSpecific return rather than return Animal, it return Cat.
+     *
+     * @param string $name
+     * @return Dog
+     */
     public function adopt(string $name): Dog
     {
         $dog = new Dog();
