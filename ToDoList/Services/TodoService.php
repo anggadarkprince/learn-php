@@ -9,14 +9,14 @@ function showTodoList()
 {
     global $todoList;
 
-    output("TODO LIST", "s") . PHP_EOL;
+    output("TODO LIST", "s");
 
     foreach ($todoList as $index => $item) {
         echo " $index. {$item['todo']} ({$item['category']})" . PHP_EOL;
     }
 
     if (empty($todoList)) {
-        output(" Todo is empty", "w") . PHP_EOL;
+        output(" Todo is empty", "w");
     }
 }
 

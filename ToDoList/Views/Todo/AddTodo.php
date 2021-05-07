@@ -12,7 +12,7 @@ function viewAddTodoList()
     $todo = input("Todo (type 'x' to cancel)");
 
     if (strtolower($todo) == "x") {
-        output("Cancel to add todo list item", "i") . PHP_EOL;
+        output("Cancel to add todo list item", "i");
     } else {
         showCategories();
 

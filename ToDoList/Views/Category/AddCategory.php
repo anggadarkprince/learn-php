@@ -12,7 +12,7 @@ function viewAddCategory()
     $category = input("Category (type 'x' to cancel)");
 
     if (strtolower($category) == "x") {
-        output("Cancel to add category", "i") . PHP_EOL;
+        output("Cancel to add category", "i");
     } else {
         addCategory($category);
     }

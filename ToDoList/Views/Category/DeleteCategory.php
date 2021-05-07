@@ -11,14 +11,14 @@ function viewDeleteCategory()
     $choice = input("Order category number (type 'x' to cancel)");
 
     if (strtolower($choice) == "x") {
-        output("Cancel to delete category item", "i") . PHP_EOL;
+        output("Cancel to delete category item", "i");
     } else {
         $result = deleteCategory($choice);
 
         if ($result) {
-            output("Category number $choice successfully deleted", "w") . PHP_EOL;
+            output("Category number $choice successfully deleted", "w");
         } else {
-            output("Delete category number $choice failed", "e") . PHP_EOL;
+            output("Delete category number $choice failed", "e");
         }
     }
 }

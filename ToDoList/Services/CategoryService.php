@@ -31,7 +31,7 @@ function showCategories()
     }
 
     if (empty($categories)) {
-        output(" Category is empty", "w") . PHP_EOL;
+        output(" Category is empty", "w");
     }
 }
 

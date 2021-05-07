@@ -11,14 +11,14 @@ function viewDeleteTodoList()
     $choice = input("Order todo number (type 'x' to cancel)");
 
     if (strtolower($choice) == "x") {
-        output("Cancel to delete todo list item", "i") . PHP_EOL;
+        output("Cancel to delete todo list item", "i");
     } else {
         $result = deleteTodoList($choice);
 
         if ($result) {
-            output("Todo number $choice successfully deleted", "w") . PHP_EOL;
+            output("Todo number $choice successfully deleted", "w");
         } else {
-            output("Delete todo number $choice failed", "e") . PHP_EOL;
+            output("Delete todo number $choice failed", "e");
         }
     }
 }

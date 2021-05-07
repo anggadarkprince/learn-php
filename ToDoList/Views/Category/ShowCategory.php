@@ -15,7 +15,7 @@ function viewShowCategory()
         showCategories();
         echo PHP_EOL;
 
-        output("CATEGORY MENU", "s") . PHP_EOL;
+        output("CATEGORY MENU", "s");
         echo " 1. Add Category" . PHP_EOL;
         echo " 2. Delete Category" . PHP_EOL;
         echo " x. Back to Todo" . PHP_EOL;
@@ -29,7 +29,7 @@ function viewShowCategory()
             viewShowTodoList();
             break;
         } else {
-            output("Unknown parameter, input 1 - 2 or x", "e") . PHP_EOL;
+            output("Unknown parameter, input 1 - 2 or x", "e");
         }
     }
 }
