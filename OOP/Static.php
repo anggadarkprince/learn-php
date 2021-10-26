@@ -1,6 +1,6 @@
 <?php
 
-require_once "helpers/MathHelper.php";
+require_once "Helpers/MathHelper.php";
 
 use Helper\MathHelper;
 

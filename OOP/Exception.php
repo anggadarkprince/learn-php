@@ -1,8 +1,8 @@
 <?php
 
-require_once "exception/ValidationException.php";
-require_once "data/LoginRequest.php";
-require_once "helpers/Validation.php";
+require_once "Exception/ValidationException.php";
+require_once "Data/LoginRequest.php";
+require_once "Helpers/Validation.php";
 
 $loginRequest = new LoginRequest();
 $loginRequest->username = "angga";

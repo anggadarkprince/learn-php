@@ -1,8 +1,8 @@
 <?php
 
-require_once "data/Food.php";
-require_once "data/Animal.php";
-require_once "data/AnimalShelter.php";
+require_once "Data/Food.php";
+require_once "Data/Animal.php";
+require_once "Data/AnimalShelter.php";
 
 use Data\AnimalFood;
 use Data\CatShelter;

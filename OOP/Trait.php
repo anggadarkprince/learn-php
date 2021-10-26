@@ -1,6 +1,6 @@
 <?php
 
-require_once "data/SayGoodByeTrait.php";
+require_once "Data/SayGoodByeTrait.php";
 
 use Data\Traits\{Person, SayHello, SayGoodBye};
 

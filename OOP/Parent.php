@@ -1,6 +1,6 @@
 <?php
 
-require_once "data/Shape.php";
+require_once "Data/Shape.php";
 
 use Data\{Shape, Rectangle};
 

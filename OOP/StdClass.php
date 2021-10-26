@@ -18,7 +18,7 @@ echo "Last Name $object->lastName" . PHP_EOL;
 $arrayAgain = (array) $object;
 var_dump($arrayAgain);
 
-require_once "data/Person.php";
+require_once "Data/Person.php";
 
 $person = new Person("Angga", "Surabaya");
 var_dump($person);

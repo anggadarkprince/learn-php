@@ -39,7 +39,7 @@ class TodoListView
                 echo "Good Bye!";
                 break;
             } else {
-                output("Unknown parameter, input 1 - 2 or x", "e");
+                OutputHelper::output("Unknown parameter, input 1 - 2 or x", "e");
             }
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-require_once "data/Product.php";
+require_once "Data/Product.php";
 
 $product = new Product("Apple", 20000);
 
