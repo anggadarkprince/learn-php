@@ -2,16 +2,12 @@
 
 namespace TodoList\Entities;
 
-require_once __DIR__ . '/Entity.php';
-
-class TodoList extends Entity
+class TodoList
 {
-    protected string $table = 'todolists';
-
     private int $id;
     private string $todo;
 
-    public function __construct(int $id, string $todo)
+    public function __construct(int $id = 0, string $todo = "")
     {
         $this->id = $id;
         $this->todo = $todo;
