@@ -1,0 +1,24 @@
+{
+    "name": "anggadarkprince/learn-unit-test",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Anggadarkprince\\LearnUnitTest\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Anggadarkprince\\LearnUnitTest\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Angga Ari Wijaya",
+            "email": "anggadarkprince@gmail.com"
+        }
+    ],
+    "require": {}
+}
