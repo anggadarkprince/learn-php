@@ -1,0 +1,30 @@
+{
+    "name": "anggadarkprince/learn-composer",
+    "description": "Learn composer",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Angga Ari Wijaya",
+            "email": "anggadarkprince@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "src/"
+        }
+    },
+    "scripts": {
+        "run-server": "@php -S localhost:8080",
+        "hello": "echo 'Hello world'"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/anggadarkprince/composer-library-hello"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "2.2.0",
+        "anggadarkprince/composer-library-hello": "2.0.*"
+    }
+}

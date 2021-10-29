@@ -1,0 +1,3 @@
+[submodule "ComposerLibrary"]
+	path = ComposerLibrary
+	url = https://github.com/anggadarkprince/composer-library-hello
