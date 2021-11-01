@@ -11,15 +11,15 @@
 </head>
 <body>
 <div class="container py-3">
-    <form action="#" method="post" style="max-width: 350px" class="mx-auto">
+    <form action="/login" method="post" style="max-width: 350px" class="mx-auto">
         <h4 class="mb-3">LOGIN</h4>
         <div class="mb-3">
             <label for="email" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="email" placeholder="Registered email">
+            <input type="email" name="email" class="form-control" id="email" placeholder="Registered email">
         </div>
         <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Your secret code">
+            <input type="password" name="password" class="form-control" id="password" placeholder="Your secret code">
         </div>
         <div class="mb-3">
             <button type="submit" class="btn btn-primary w-100">LOGIN</button>

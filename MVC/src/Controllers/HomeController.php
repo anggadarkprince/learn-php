@@ -6,7 +6,7 @@ use Anggadarkprince\SimplePhpMvc\Cores\View;
 
 class HomeController
 {
-    public function index()
+    public function index(): void
     {
         $data = [
             'title' => 'Home Page - Dashboard',
