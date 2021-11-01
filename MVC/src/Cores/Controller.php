@@ -56,10 +56,12 @@ class Controller
      * Render data as json.
      *
      * @param $data
+     * @param int $responseCode
      */
-    protected function renderJson($data)
+    protected function renderJson($data, $responseCode = 200)
     {
         header('Content-Type: application/json; charset=UTF-8');
+        http_response_code($responseCode);
         echo json_encode($data);
     }
 }

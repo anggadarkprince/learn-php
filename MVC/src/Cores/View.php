@@ -7,6 +7,8 @@ use Exception;
 
 class View
 {
+    public static array $args = [];
+
     /**
      * Render view to response or return rendered view to variable.
      *
@@ -23,6 +25,8 @@ class View
         if (!is_readable($viewPath)) {
             throw new ViewInvalidPathException("View $view is not found", 500);
         }
+
+        self::$args = $args;
 
         extract($args ?? [], EXTR_SKIP);
 
