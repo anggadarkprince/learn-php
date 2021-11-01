@@ -22,5 +22,15 @@
     ],
     "require": {
         "php": ">=8.0"
+    },
+    "config": {
+        "platform": {
+            "php": "8.0"
+        }
+    },
+    "scripts": {
+        "test" : "phpunit --configuration phpunit.xml",
+        "test:product" : "phpunit --configuration phpunit.xml --testsuite product",
+        "test:counter" : "phpunit --configuration phpunit.xml --testsuite counter"
     }
 }
