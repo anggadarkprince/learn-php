@@ -3,6 +3,8 @@
 namespace Anggadarkprince\SimplePhpMvc\Controllers;
 
 use Anggadarkprince\SimplePhpMvc\Cores\Controller;
+use Anggadarkprince\SimplePhpMvc\Repositories\UserRepository;
+use Anggadarkprince\SimplePhpMvc\Services\LoginService;
 
 class LoginController extends Controller
 {
@@ -16,15 +18,25 @@ class LoginController extends Controller
         $email = $this->post('email');
         $password = $this->input('password');
 
-        session_start();
-        $_SESSION['user'] = [
-            'email' => $email
-        ];
+        $userRepository = new UserRepository();
+        $service = new LoginService($userRepository);
+        $isLogin = $service->login($email, $password);
+
+        if ($isLogin) {
+            session_start();
+            $_SESSION['user'] = [
+                'email' => $email
+            ];
+
+            $this->renderJson([
+                'email' => $email,
+                'password' => $password
+            ]);
+        }
 
         $this->renderJson([
-            'email' => $email,
-            'password' => $password
-        ]);
+            'status' => 'Unauthorized',
+        ], 401);
     }
 
     public function logout(): void

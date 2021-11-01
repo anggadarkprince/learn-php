@@ -63,5 +63,6 @@ class Controller
         header('Content-Type: application/json; charset=UTF-8');
         http_response_code($responseCode);
         echo json_encode($data);
+        exit();
     }
 }
