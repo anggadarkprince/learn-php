@@ -31,7 +31,7 @@ class SessionRepositoryTest extends TestCase
     {
         $session = new Session();
         $session->id = uniqid();
-        $session->userId = "eko";
+        $session->userId = "angga";
 
         $this->sessionRepository->save($session);
 
@@ -44,7 +44,7 @@ class SessionRepositoryTest extends TestCase
     {
         $session = new Session();
         $session->id = uniqid();
-        $session->userId = "eko";
+        $session->userId = "angga";
 
         $this->sessionRepository->save($session);
 

@@ -1,15 +1,16 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\Service;
+namespace Anggadarkprince\SimpleWebLogin\Service;
 
 require_once __DIR__ . '/../Helper/helper.php';
 
+use Anggadarkprince\SimpleWebLogin\Config\Database;
+use Anggadarkprince\SimpleWebLogin\Domains\Session;
+use Anggadarkprince\SimpleWebLogin\Domains\User;
+use Anggadarkprince\SimpleWebLogin\Repositories\SessionRepository;
+use Anggadarkprince\SimpleWebLogin\Repositories\UserRepository;
+use Anggadarkprince\SimpleWebLogin\Services\SessionService;
 use PHPUnit\Framework\TestCase;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Config\Database;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Domain\Session;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Domain\User;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Repository\SessionRepository;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Repository\UserRepository;
 
 class SessionServiceTest extends TestCase
 {
@@ -17,7 +18,7 @@ class SessionServiceTest extends TestCase
     private SessionRepository $sessionRepository;
     private UserRepository $userRepository;
 
-    protected function setUp():void
+    protected function setUp(): void
     {
         $this->sessionRepository = new SessionRepository(Database::getConnection());
         $this->userRepository = new UserRepository(Database::getConnection());
@@ -37,7 +38,7 @@ class SessionServiceTest extends TestCase
     {
         $session = $this->sessionService->create("eko");
 
-        $this->expectOutputRegex("[X-PZN-SESSION: $session->id]");
+        $this->expectOutputRegex("[X-APP-SESSION: $session->id]");
 
         $result = $this->sessionRepository->findById($session->id);
 
@@ -56,7 +57,7 @@ class SessionServiceTest extends TestCase
 
         $this->sessionService->destroy();
 
-        $this->expectOutputRegex("[X-PZN-SESSION: ]");
+        $this->expectOutputRegex("[X-APP-SESSION: ]");
 
         $result = $this->sessionRepository->findById($session->id);
         self::assertNull($result);

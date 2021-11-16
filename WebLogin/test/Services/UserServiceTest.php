@@ -1,17 +1,18 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC\Service;
+namespace Anggadarkprince\SimpleWebLogin\Service;
 
+use Anggadarkprince\SimpleWebLogin\Config\Database;
+use Anggadarkprince\SimpleWebLogin\Domains\User;
+use Anggadarkprince\SimpleWebLogin\Exceptions\ValidationException;
+use Anggadarkprince\SimpleWebLogin\Models\UserLoginRequest;
+use Anggadarkprince\SimpleWebLogin\Models\UserPasswordUpdateRequest;
+use Anggadarkprince\SimpleWebLogin\Models\UserProfileUpdateRequest;
+use Anggadarkprince\SimpleWebLogin\Models\UserRegisterRequest;
+use Anggadarkprince\SimpleWebLogin\Repositories\SessionRepository;
+use Anggadarkprince\SimpleWebLogin\Repositories\UserRepository;
+use Anggadarkprince\SimpleWebLogin\Services\UserService;
 use PHPUnit\Framework\TestCase;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Config\Database;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Domain\User;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Exception\ValidationException;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserLoginRequest;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserPasswordUpdateRequest;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserProfileUpdateRequest;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Model\UserRegisterRequest;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Repository\SessionRepository;
-use ProgrammerZamanNow\Belajar\PHP\MVC\Repository\UserRepository;
 
 class UserServiceTest extends TestCase
 {
@@ -19,7 +20,7 @@ class UserServiceTest extends TestCase
     private UserRepository $userRepository;
     private SessionRepository $sessionRepository;
 
-    protected function setUp():void
+    protected function setUp(): void
     {
         $connection = Database::getConnection();
         $this->userRepository = new UserRepository($connection);

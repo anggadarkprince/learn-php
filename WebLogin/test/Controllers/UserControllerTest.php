@@ -36,10 +36,9 @@ class UserControllerTest extends TestCase
         $this->userController->register();
 
         $this->expectOutputRegex("[Register]");
-        $this->expectOutputRegex("[Id]");
+        $this->expectOutputRegex("[User ID]");
         $this->expectOutputRegex("[Name]");
         $this->expectOutputRegex("[Password]");
-        $this->expectOutputRegex("[Register new User]");
     }
 
     public function testPostRegisterSuccess()
@@ -116,7 +115,7 @@ class UserControllerTest extends TestCase
         $this->userController->postLogin();
 
         $this->expectOutputRegex("[Location: /]");
-        $this->expectOutputRegex("[X-PZN-SESSION: ]");
+        $this->expectOutputRegex("[X-APP-SESSION: ]");
     }
 
     public function testLoginValidationError()
@@ -183,7 +182,7 @@ class UserControllerTest extends TestCase
         $this->userController->logout();
 
         $this->expectOutputRegex("[Location: /]");
-        $this->expectOutputRegex("[X-PZN-SESSION: ]");
+        $this->expectOutputRegex("[X-APP-SESSION: ]");
     }
 
     public function testUpdateProfile()
