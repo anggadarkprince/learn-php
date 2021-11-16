@@ -1,24 +1,19 @@
 <div class="container col-xl-10 col-xxl-8 px-4 py-5">
-
-    <?php if(isset($model['error'])) { ?>
-        <div class="row">
-            <div class="alert alert-danger" role="alert">
-                <?= $model['error'] ?>
-            </div>
-        </div>
-    <?php } ?>
-
     <div class="row align-items-center g-lg-5 py-5">
         <div class="col-lg-7 text-center text-lg-start">
             <h1 class="display-4 fw-bold lh-1 mb-3">Register</h1>
-            <p class="col-lg-10 fs-4">by <a target="_blank" href="https://www.programmerzamannow.com/">Programmer Zaman
-                    Now</a></p>
+            <p class="col-lg-10 fs-4">by <a target="_blank" href="https://www.angga-ari.com/">Angga Ari Wijaya</a></p>
         </div>
         <div class="col-md-10 mx-auto col-lg-5">
             <form class="p-4 p-md-5 border rounded-3 bg-light" method="post" action="/users/register">
+                <?php if(isset($error)) { ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= $error ?>
+                    </div>
+                <?php } ?>
                 <div class="form-floating mb-3">
                     <input name="id" type="text" class="form-control" id="id" placeholder="id" value="<?= $_POST['id'] ?? '' ?>">
-                    <label for="id">Id</label>
+                    <label for="id">User ID</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input name="name" type="text" class="form-control" id="name" placeholder="name" value="<?= $_POST['name'] ?? '' ?>">

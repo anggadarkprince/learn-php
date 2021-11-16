@@ -9,7 +9,7 @@
                 <div class="form-floating mb-3">
                     <a href="/users/register" class="w-100 btn btn-lg btn-primary">Register</a>
                 </div>
-                <div class="form-floating mb-3">
+                <div class="form-floating">
                     <a href="/users/login" class="w-100 btn btn-lg btn-primary">Login</a>
                 </div>
             </div>

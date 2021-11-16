@@ -1,7 +1,7 @@
 <?php
 
-use Anggadarkprince\SimplePhpMvc\Controllers\HomeController;
-use Anggadarkprince\SimplePhpMvc\Cores\Router;
+use Anggadarkprince\SimpleWebLogin\Controllers\HomeController;
+use Anggadarkprince\SimpleWebLogin\Cores\Router;
 use Anggadarkprince\SimpleWebLogin\Controllers\UserController;
 use Anggadarkprince\SimpleWebLogin\Middleware\MustAuthenticatedMiddleware;
 use Anggadarkprince\SimpleWebLogin\Middleware\RedirectIfAuthenticatedMiddleware;

@@ -38,16 +38,19 @@ class View
             return $renderedView;
         }
 
-        View::template($viewPath);
+        View::template($viewPath, $args);
     }
 
     /**
      * Require view with template.
      *
      * @param $viewPath
+     * @param array $args
      */
-    public static function template($viewPath)
+    public static function template($viewPath, $args = [])
     {
+        extract($args ?? [], EXTR_SKIP);
+
         require __DIR__ . '/../Views/header.php';
         require $viewPath;
         require __DIR__ . '/../Views/footer.php';
