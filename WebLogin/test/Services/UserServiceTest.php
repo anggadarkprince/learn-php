@@ -34,9 +34,9 @@ class UserServiceTest extends TestCase
     public function testRegisterSuccess()
     {
         $request = new UserRegisterRequest();
-        $request->id = "eko";
-        $request->name = "Eko";
-        $request->password = "rahasia";
+        $request->id = "angga";
+        $request->name = "Angga Ari Wijaya";
+        $request->password = "secret";
 
         $response = $this->userService->register($request);
 
@@ -62,18 +62,18 @@ class UserServiceTest extends TestCase
     public function testRegisterDuplicate()
     {
         $user = new User();
-        $user->id = "eko";
-        $user->name = "Eko";
-        $user->password = "rahasia";
+        $user->id = "angga";
+        $user->name = "Angga Ari Wijaya";
+        $user->password = "secret";
 
         $this->userRepository->save($user);
 
         $this->expectException(ValidationException::class);
 
         $request = new UserRegisterRequest();
-        $request->id = "eko";
-        $request->name = "Eko";
-        $request->password = "rahasia";
+        $request->id = "angga";
+        $request->name = "Angga Ari Wijaya";
+        $request->password = "secret";
 
         $this->userService->register($request);
     }

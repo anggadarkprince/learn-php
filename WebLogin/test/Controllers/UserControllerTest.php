@@ -43,9 +43,9 @@ class UserControllerTest extends TestCase
 
     public function testPostRegisterSuccess()
     {
-        $_POST['id'] = 'eko';
-        $_POST['name'] = 'Eko';
-        $_POST['password'] = 'rahasia';
+        $_POST['id'] = 'angga';
+        $_POST['name'] = 'Angga Ari Wijaya';
+        $_POST['password'] = 'secret';
 
         $this->userController->postRegister();
 
@@ -55,8 +55,8 @@ class UserControllerTest extends TestCase
     public function testPostRegisterValidationError()
     {
         $_POST['id'] = '';
-        $_POST['name'] = 'Eko';
-        $_POST['password'] = 'rahasia';
+        $_POST['name'] = 'Angga Ari Wijaya';
+        $_POST['password'] = 'secret';
 
         $this->userController->postRegister();
 
@@ -71,15 +71,15 @@ class UserControllerTest extends TestCase
     public function testPostRegisterDuplicate()
     {
         $user = new User();
-        $user->id = "eko";
-        $user->name = "Eko";
-        $user->password = "rahasia";
+        $user->id = "angga";
+        $user->name = "Angga Ari Wijaya";
+        $user->password = "secret";
 
         $this->userRepository->save($user);
 
-        $_POST['id'] = 'eko';
-        $_POST['name'] = 'Eko';
-        $_POST['password'] = 'rahasia';
+        $_POST['id'] = 'angga';
+        $_POST['name'] = 'Angga Ari Wijaya';
+        $_POST['password'] = 'secret';
 
         $this->userController->postRegister();
 
@@ -103,14 +103,14 @@ class UserControllerTest extends TestCase
     public function testLoginSuccess()
     {
         $user = new User();
-        $user->id = "eko";
-        $user->name = "Eko";
-        $user->password = password_hash("rahasia", PASSWORD_BCRYPT);
+        $user->id = "angga";
+        $user->name = "Angga Ari Wijaya";
+        $user->password = password_hash("secret", PASSWORD_BCRYPT);
 
         $this->userRepository->save($user);
 
-        $_POST['id'] = 'eko';
-        $_POST['password'] = 'rahasia';
+        $_POST['id'] = 'angga';
+        $_POST['password'] = 'secret';
 
         $this->userController->postLogin();
 
@@ -147,14 +147,14 @@ class UserControllerTest extends TestCase
     public function testLoginWrongPassword()
     {
         $user = new User();
-        $user->id = "eko";
-        $user->name = "Eko";
-        $user->password = password_hash("rahasia", PASSWORD_BCRYPT);
+        $user->id = "angga";
+        $user->name = "Angga";
+        $user->password = password_hash("secret", PASSWORD_BCRYPT);
 
         $this->userRepository->save($user);
 
-        $_POST['id'] = 'eko';
-        $_POST['password'] = 'salah';
+        $_POST['id'] = 'angga';
+        $_POST['password'] = 'wrong password';
 
         $this->userController->postLogin();
 
@@ -167,9 +167,9 @@ class UserControllerTest extends TestCase
     public function testLogout()
     {
         $user = new User();
-        $user->id = "eko";
-        $user->name = "Eko";
-        $user->password = password_hash("rahasia", PASSWORD_BCRYPT);
+        $user->id = "angga";
+        $user->name = "Angga";
+        $user->password = password_hash("secret", PASSWORD_BCRYPT);
         $this->userRepository->save($user);
 
         $session = new Session();
@@ -188,9 +188,9 @@ class UserControllerTest extends TestCase
     public function testUpdateProfile()
     {
         $user = new User();
-        $user->id = "eko";
-        $user->name = "Eko";
-        $user->password = password_hash("rahasia", PASSWORD_BCRYPT);
+        $user->id = "angga";
+        $user->name = "Angga";
+        $user->password = password_hash("secret", PASSWORD_BCRYPT);
         $this->userRepository->save($user);
 
         $session = new Session();
@@ -204,17 +204,17 @@ class UserControllerTest extends TestCase
 
         $this->expectOutputRegex("[Profile]");
         $this->expectOutputRegex("[Id]");
-        $this->expectOutputRegex("[eko]");
+        $this->expectOutputRegex("[angga]");
         $this->expectOutputRegex("[Name]");
-        $this->expectOutputRegex("[Eko]");
+        $this->expectOutputRegex("[Angga]");
     }
 
     public function testPostUpdateProfileSuccess()
     {
         $user = new User();
-        $user->id = "eko";
-        $user->name = "Eko";
-        $user->password = password_hash("rahasia", PASSWORD_BCRYPT);
+        $user->id = "angga";
+        $user->name = "Angga";
+        $user->password = password_hash("secret", PASSWORD_BCRYPT);
         $this->userRepository->save($user);
 
         $session = new Session();
@@ -224,21 +224,21 @@ class UserControllerTest extends TestCase
 
         $_COOKIE[SessionService::$COOKIE_NAME] = $session->id;
 
-        $_POST['name'] = 'Budi';
+        $_POST['name'] = 'Ari';
         $this->userController->postUpdateProfile();
 
         $this->expectOutputRegex("[Location: /]");
 
-        $result = $this->userRepository->findById("eko");
-        self::assertEquals("Budi", $result->name);
+        $result = $this->userRepository->findById("angga");
+        self::assertEquals("Ari", $result->name);
     }
 
     public function testPostUpdateProfileValidationError()
     {
         $user = new User();
-        $user->id = "eko";
-        $user->name = "Eko";
-        $user->password = password_hash("rahasia", PASSWORD_BCRYPT);
+        $user->id = "angga";
+        $user->name = "Angga";
+        $user->password = password_hash("secret", PASSWORD_BCRYPT);
         $this->userRepository->save($user);
 
         $session = new Session();
@@ -253,7 +253,7 @@ class UserControllerTest extends TestCase
 
         $this->expectOutputRegex("[Profile]");
         $this->expectOutputRegex("[Id]");
-        $this->expectOutputRegex("[eko]");
+        $this->expectOutputRegex("[angga]");
         $this->expectOutputRegex("[Name]");
         $this->expectOutputRegex("[Id, Name can not blank]");
     }
@@ -261,9 +261,9 @@ class UserControllerTest extends TestCase
     public function testUpdatePassword()
     {
         $user = new User();
-        $user->id = "eko";
-        $user->name = "Eko";
-        $user->password = password_hash("rahasia", PASSWORD_BCRYPT);
+        $user->id = "angga";
+        $user->name = "Angga";
+        $user->password = password_hash("secret", PASSWORD_BCRYPT);
         $this->userRepository->save($user);
 
         $session = new Session();
@@ -277,15 +277,15 @@ class UserControllerTest extends TestCase
 
         $this->expectOutputRegex("[Password]");
         $this->expectOutputRegex("[Id]");
-        $this->expectOutputRegex("[eko]");
+        $this->expectOutputRegex("[angga]");
     }
 
     public function testPostUpdatePasswordSuccess()
     {
         $user = new User();
-        $user->id = "eko";
-        $user->name = "Eko";
-        $user->password = password_hash("rahasia", PASSWORD_BCRYPT);
+        $user->id = "angga";
+        $user->name = "Angga";
+        $user->password = password_hash("secret", PASSWORD_BCRYPT);
         $this->userRepository->save($user);
 
         $session = new Session();
@@ -295,23 +295,23 @@ class UserControllerTest extends TestCase
 
         $_COOKIE[SessionService::$COOKIE_NAME] = $session->id;
 
-        $_POST['oldPassword'] = 'rahasia';
-        $_POST['newPassword'] = 'budi';
+        $_POST['oldPassword'] = 'secret';
+        $_POST['newPassword'] = 'angga';
 
         $this->userController->postUpdatePassword();
 
         $this->expectOutputRegex("[Location: /]");
 
         $result = $this->userRepository->findById($user->id);
-        self::assertTrue(password_verify("budi", $result->password));
+        self::assertTrue(password_verify("angga", $result->password));
     }
 
     public function testPostUpdatePasswordValidationError()
     {
         $user = new User();
-        $user->id = "eko";
-        $user->name = "Eko";
-        $user->password = password_hash("rahasia", PASSWORD_BCRYPT);
+        $user->id = "angga";
+        $user->name = "Angga";
+        $user->password = password_hash("secret", PASSWORD_BCRYPT);
         $this->userRepository->save($user);
 
         $session = new Session();
@@ -328,16 +328,16 @@ class UserControllerTest extends TestCase
 
         $this->expectOutputRegex("[Password]");
         $this->expectOutputRegex("[Id]");
-        $this->expectOutputRegex("[eko]");
+        $this->expectOutputRegex("[angga]");
         $this->expectOutputRegex("[Id, Old Password, New Password can not blank]");
     }
 
     public function testPostUpdatePasswordWrongOldPassword()
     {
         $user = new User();
-        $user->id = "eko";
-        $user->name = "Eko";
-        $user->password = password_hash("rahasia", PASSWORD_BCRYPT);
+        $user->id = "angga";
+        $user->name = "Angga";
+        $user->password = password_hash("secret", PASSWORD_BCRYPT);
         $this->userRepository->save($user);
 
         $session = new Session();
@@ -347,14 +347,14 @@ class UserControllerTest extends TestCase
 
         $_COOKIE[SessionService::$COOKIE_NAME] = $session->id;
 
-        $_POST['oldPassword'] = 'salah';
-        $_POST['newPassword'] = 'budi';
+        $_POST['oldPassword'] = 'wrong';
+        $_POST['newPassword'] = 'ari';
 
         $this->userController->postUpdatePassword();
 
         $this->expectOutputRegex("[Password]");
         $this->expectOutputRegex("[Id]");
-        $this->expectOutputRegex("[eko]");
+        $this->expectOutputRegex("[angga]");
         $this->expectOutputRegex("[Old password is wrong]");
     }
 
