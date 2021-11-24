@@ -1,6 +1,6 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC;
+namespace Anggadarkprince\SimplePhpMvc;
 
 use Monolog\Formatter\JsonFormatter;
 use Monolog\Handler\StreamHandler;

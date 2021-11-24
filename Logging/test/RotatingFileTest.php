@@ -1,6 +1,6 @@
 <?php
 
-namespace ProgrammerZamanNow\Belajar\PHP\MVC;
+namespace Anggadarkprince\SimplePhpMvc;
 
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
