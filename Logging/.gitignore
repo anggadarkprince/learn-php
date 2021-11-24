@@ -1,0 +1,5 @@
+vendor
+.phpunit.result.cache
+application.log
+error.log
+app*.log
